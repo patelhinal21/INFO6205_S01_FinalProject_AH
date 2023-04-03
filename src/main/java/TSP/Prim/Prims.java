@@ -1,5 +1,6 @@
 package TSP.Prim;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -47,10 +48,6 @@ public class Prims {
         Edge e8 = new Edge(2,3,6);
         Edge e9 = new Edge(2,4,4);
         Edge e10 = new Edge(3,4,4);
-//        Edge e11 = new Edge(5,3,14);
-//        Edge e12 = new Edge(5,4,10);
-//        Edge e13 = new Edge(3,4,9);
-//        Edge e14 = new Edge(6,5,2);
 
         edgeWeightedGraph.addEdge(e1);
         edgeWeightedGraph.addEdge(e2);
@@ -62,18 +59,20 @@ public class Prims {
         edgeWeightedGraph.addEdge(e8);
         edgeWeightedGraph.addEdge(e9);
         edgeWeightedGraph.addEdge(e10);
-//        edgeWeightedGraph.addEdge(e11);
-//        edgeWeightedGraph.addEdge(e12);
-//        edgeWeightedGraph.addEdge(e13);
-//        edgeWeightedGraph.addEdge(e14);
 
         Prims prims = new Prims(edgeWeightedGraph);
 
-        for (Edge edge : prims.mst) {
-            System.out.println("printing edge " + edge);
-        }
+//        for (Edge edge : prims.mst) {
+//            int v1 = edge.either();
+//            int v2 = edge.other(v1);
+//            System.out.println("printing one edge " + edge);
+//            System.out.println("printing first set of vertices " + v1);
+//            System.out.println("printing second set of vertices " + v2);
+//        }
 
         System.out.println("inside main");
-
+        HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
+        System.out.println(re);
+        System.out.println("array entries" + FindOddVertices.oddVertices(re));
     }
 }
