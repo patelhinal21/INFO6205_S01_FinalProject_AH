@@ -1,5 +1,6 @@
 package TSP.Prim;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,6 +9,8 @@ public class Prims {
     private boolean[] marked; // MST vertices
     private Queue<Edge> mst; // MST edges
     private MinPQ<Edge> pq; // crossing (and ineligible) edges
+
+    private ArrayList<Integer> vertices;
     public Prims(EdgeWeightedGraph G)
     {
         pq = new MinPQ<Edge>();
@@ -61,18 +64,9 @@ public class Prims {
         edgeWeightedGraph.addEdge(e10);
 
         Prims prims = new Prims(edgeWeightedGraph);
+        System.out.println(prims.mst);
+        prims.vertices = FindOddVertices.getOddEvenVertices(prims.mst);
+        System.out.println(prims.vertices);
 
-//        for (Edge edge : prims.mst) {
-//            int v1 = edge.either();
-//            int v2 = edge.other(v1);
-//            System.out.println("printing one edge " + edge);
-//            System.out.println("printing first set of vertices " + v1);
-//            System.out.println("printing second set of vertices " + v2);
-//        }
-
-        System.out.println("inside main");
-        HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
-        System.out.println(re);
-        System.out.println("array entries" + FindOddVertices.oddVertices(re));
     }
 }

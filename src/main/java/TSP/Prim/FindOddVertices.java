@@ -13,7 +13,7 @@ public class FindOddVertices {
         this.mst = mst;
     }
 
-    public static HashMap<Integer, Integer> getOddEvenVertices(Queue<Edge> mst) {
+    public static ArrayList<Integer> getOddEvenVertices(Queue<Edge> mst) {
         HashMap<Integer, Integer> vertices = new HashMap<>();
         int count = 1;
         int newCount;
@@ -40,8 +40,8 @@ public class FindOddVertices {
             }
 
         }
-        System.out.println("hashmap values" + vertices);
-        return vertices;
+        System.out.println(vertices);
+        return oddVertices(vertices);
     }
 
     public static ArrayList<Integer> oddVertices(HashMap<Integer, Integer> vertices) {
@@ -49,7 +49,6 @@ public class FindOddVertices {
         for(Map.Entry<Integer, Integer> itr : vertices.entrySet())
         {
             int val = itr.getValue();
-            System.out.println("printing keys " + itr.getKey());
             if(!(val%2==0))
             {
                 verticesArray.add(itr.getKey());
