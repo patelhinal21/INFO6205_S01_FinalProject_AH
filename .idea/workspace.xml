@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,7 @@
       <workItem from="1680472783773" duration="1146000" />
       <workItem from="1680477404144" duration="48000" />
       <workItem from="1680477459434" duration="72000" />
-      <workItem from="1680554166447" duration="3749000" />
+      <workItem from="1680554166447" duration="4378000" />
     </task>
     <servers />
   </component>
