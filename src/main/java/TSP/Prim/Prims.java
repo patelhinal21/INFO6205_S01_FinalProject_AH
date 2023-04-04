@@ -74,5 +74,7 @@ public class Prims {
         HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
         System.out.println(re);
         System.out.println("array entries" + FindOddVertices.oddVertices(re));
+        HashMap<Edge, Double> r=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
+        System.out.println(r);
     }
 }
