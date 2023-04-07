@@ -71,8 +71,9 @@ public class Prims {
 //        }
 
         System.out.println("inside main");
+        System.out.println("mst" + prims.mst);
         HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
-        System.out.println(re);
+        System.out.println("re" + re);
         System.out.println("array entries" + FindOddVertices.oddVertices(re));
         HashMap<Edge, Double> r=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
         System.out.println(r);
