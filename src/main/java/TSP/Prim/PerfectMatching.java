@@ -4,8 +4,9 @@ import java.util.*;
 
 public class PerfectMatching {
 
-    public static HashMap<Edge, Double> PerfectMatchingPairs(EdgeWeightedGraph G, ArrayList<Integer> A) {
+    public static List<Edge> PerfectMatchingPairs(EdgeWeightedGraph G, ArrayList<Integer> A) {
         int i = 0;
+        int oddVerticesNumber = A.size();
 //        method to find edges of odd vertices
         HashMap<Edge, Double> edgesForPerfectMatching = new HashMap<>();
         for (Integer o : A) {
@@ -37,18 +38,38 @@ public class PerfectMatching {
             sortedHashMap.put(itr.getKey(), itr.getValue());
         }
         System.out.println("After sorting " + sortedHashMap);
-        pairsToAdd(sortedHashMap);
-        return sortedHashMap;
+        List<Edge> pairsOfEdges = pairsToAdd(sortedHashMap, oddVerticesNumber);
+        return pairsOfEdges;
     }
 
-    public static void pairsToAdd (HashMap<Edge, Double> sortedEdges) {
-        Map.Entry<Edge, Double> actualValue = sortedEdges.entrySet()
-                .stream()
-                .findFirst()
-                .get();
-        Edge e1 = actualValue.getKey();
-        int i1 = e1.either();
-        int i2 = e1.other(i1);
-        System.out.println("actual value " + actualValue);
+    public static List<Edge> pairsToAdd (HashMap<Edge, Double> sortedEdges, int oddVerticesNumber) {
+        List<Edge> edgesFromPerfectMatching = new LinkedList<>();
+
+        for(int i =0 ; i < oddVerticesNumber/2; i++) {
+            Map.Entry<Edge, Double> actualValue = sortedEdges.entrySet()
+                    .stream()
+                    .findFirst()
+                    .get();
+            Edge e1 = actualValue.getKey();
+            Edge e2 = null;
+            edgesFromPerfectMatching.add(e1);
+            int i1 = e1.either();
+            int i2 = e1.other(i1);
+            System.out.println("actual value " + actualValue);
+            Iterator<Map.Entry<Edge, Double>> itr = sortedEdges.entrySet().iterator();
+            while (itr.hasNext()) {
+                Map.Entry<Edge, Double> entry = itr.next();
+                e2 = entry.getKey();
+                int i3 = e2.either();
+                int i4 = e2.other(i3);
+                if (i1 == i3 || i1 == i4 || i2 == i3 || i2 == i4) {
+                    itr.remove();
+                }
+            }
+            //            edgesFromPerfectMatching.add(e2);
+            System.out.println("after filtering " + sortedEdges);
+            System.out.println("edges" + edgesFromPerfectMatching);
+        }
+        return edgesFromPerfectMatching;
     }
 }

@@ -15,6 +15,7 @@ public class FindOddVertices {
 
 
 
+
     public static HashMap<Integer, Integer> getOddEvenVertices(Queue<Edge> mst) {
         HashMap<Integer, Integer> vertices = new HashMap<>();
         int count = 1;
