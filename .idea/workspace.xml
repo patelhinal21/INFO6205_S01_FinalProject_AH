@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +47,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.Prims" />
-      <module name="Final_Project_PSA_S01_AH" />
+      <module name="INFO6205_S01_FinalProject_AH" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TSP.Prim.*" />
@@ -78,6 +76,7 @@
       <workItem from="1680477404144" duration="48000" />
       <workItem from="1680477459434" duration="72000" />
       <workItem from="1680554166447" duration="3749000" />
+      <workItem from="1681155327663" duration="771000" />
     </task>
     <servers />
   </component>
@@ -94,5 +93,18 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

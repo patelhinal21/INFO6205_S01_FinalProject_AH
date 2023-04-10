@@ -2,6 +2,7 @@ package TSP.Prim;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Prims {
@@ -62,19 +63,13 @@ public class Prims {
 
         Prims prims = new Prims(edgeWeightedGraph);
 
-//        for (Edge edge : prims.mst) {
-//            int v1 = edge.either();
-//            int v2 = edge.other(v1);
-//            System.out.println("printing one edge " + edge);
-//            System.out.println("printing first set of vertices " + v1);
-//            System.out.println("printing second set of vertices " + v2);
-//        }
-
         System.out.println("inside main");
+        System.out.println("mst" + prims.mst);
         HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
-        System.out.println(re);
+        System.out.println("re" + re);
         System.out.println("array entries" + FindOddVertices.oddVertices(re));
-        HashMap<Edge, Double> r=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
-        System.out.println(r);
+        List<Edge> pairs=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
+        System.out.println("inside prims" + pairs);
+        prims.mst.addAll(pairs);
     }
 }
