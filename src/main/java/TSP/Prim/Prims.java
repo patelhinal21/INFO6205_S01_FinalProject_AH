@@ -71,5 +71,15 @@ public class Prims {
         List<Edge> pairs=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
         System.out.println("inside prims" + pairs);
         prims.mst.addAll(pairs);
+        System.out.println("mst with pairs " + prims.mst);
+        //System.out.println("EulerainTour" + EulerianTour.eulerianTour(prims.mst));
+        System.out.println("EulerainTour" + EulerianTour.eulerianTour(prims.mst));
+        //List<Integer> tour = EulerianTour.eulerianTour(prims.mst);
+        //System.out.println("hamilton circuit" + EulerianTour.hamiltonianCircuit(tour));
+
+
+
+
+
     }
 }
