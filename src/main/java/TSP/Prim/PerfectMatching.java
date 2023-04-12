@@ -27,7 +27,7 @@ public class PerfectMatching {
         }
 
         System.out.println("tree map " + edgesForPerfectMatching1);
-        System.out.println("Before sorting " + edgesForPerfectMatching);
+
 
 //        method to sort edges
         List<Map.Entry<Edge, Double>> listValues = new LinkedList<>(edgesForPerfectMatching.entrySet());
@@ -37,7 +37,7 @@ public class PerfectMatching {
         for (Map.Entry<Edge, Double> itr : listValues) {
             sortedHashMap.put(itr.getKey(), itr.getValue());
         }
-        System.out.println("After sorting " + sortedHashMap);
+
         List<Edge> pairsOfEdges = pairsToAdd(sortedHashMap, oddVerticesNumber);
         return pairsOfEdges;
     }
@@ -55,7 +55,7 @@ public class PerfectMatching {
             edgesFromPerfectMatching.add(e1);
             int i1 = e1.either();
             int i2 = e1.other(i1);
-            System.out.println("actual value " + actualValue);
+
             Iterator<Map.Entry<Edge, Double>> itr = sortedEdges.entrySet().iterator();
             while (itr.hasNext()) {
                 Map.Entry<Edge, Double> entry = itr.next();
@@ -66,9 +66,6 @@ public class PerfectMatching {
                     itr.remove();
                 }
             }
-            //            edgesFromPerfectMatching.add(e2);
-            System.out.println("after filtering " + sortedEdges);
-            System.out.println("edges" + edgesFromPerfectMatching);
         }
         return edgesFromPerfectMatching;
     }

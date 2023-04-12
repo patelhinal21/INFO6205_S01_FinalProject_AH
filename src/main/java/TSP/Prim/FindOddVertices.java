@@ -43,7 +43,7 @@ public class FindOddVertices {
             }
 
         }
-        System.out.println("hashmap values" + vertices);
+
         return vertices;
     }
 
@@ -52,7 +52,6 @@ public class FindOddVertices {
         for(Map.Entry<Integer, Integer> itr : vertices.entrySet())
         {
             int val = itr.getValue();
-            System.out.println("printing keys " + itr.getKey());
             if(!(val%2==0))
             {
                 verticesArray.add(itr.getKey());

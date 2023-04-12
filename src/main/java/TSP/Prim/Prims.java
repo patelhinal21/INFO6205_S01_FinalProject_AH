@@ -63,13 +63,22 @@ public class Prims {
 
         Prims prims = new Prims(edgeWeightedGraph);
 
-        System.out.println("inside main");
-        System.out.println("mst" + prims.mst);
-        HashMap<Integer, Integer> re = FindOddVertices.getOddEvenVertices(prims.mst);
-        System.out.println("re" + re);
-        System.out.println("array entries" + FindOddVertices.oddVertices(re));
-        List<Edge> pairs=  PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(re));
-        System.out.println("inside prims" + pairs);
+        System.out.println("minimum spanning tree " + prims.mst);
+        HashMap<Integer, Integer> oddEvenVertices = FindOddVertices.getOddEvenVertices(prims.mst);
+        System.out.println("odd even vertices " + oddEvenVertices);
+        System.out.println("array entries of odd vertices " + FindOddVertices.oddVertices(oddEvenVertices));
+        List<Edge> pairs= PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph,FindOddVertices.oddVertices(oddEvenVertices));
+        System.out.println("pairs " + pairs);
         prims.mst.addAll(pairs);
+        System.out.println("multigraph after adding pairs " + prims.mst);
+
+        EulerianCycle eu = new EulerianCycle(prims.mst);
+        System.out.println("printing Eulerian cycle " + eu.eulerianCycle());
+        System.out.println("has Eulerian cycle " + eu.hasEulerianCycle());
+
+
+
+
+
     }
 }
