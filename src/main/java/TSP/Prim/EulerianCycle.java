@@ -6,7 +6,10 @@ public class EulerianCycle {
     private Queue<Integer> cycle = new LinkedList<>();
     private int[] degree;
 
+    private Queue<Edge> multigraph;
+
     public EulerianCycle(Queue<Edge> multigraph) {
+        this.multigraph = multigraph;
         int V = getNumberOfVertices(multigraph);
         degree = new int[V];
 
@@ -35,6 +38,7 @@ public class EulerianCycle {
             int v = stack.pop();
             while (!adj[v].isEmpty()) {
                 Edge e = adj[v].remove(0);
+                System.out.println("edge " + e);
                 int w = e.other(v);
                 stack.push(v);
                 v = w;
@@ -53,7 +57,7 @@ public class EulerianCycle {
         return cycle != null;
     }
 
-    public Iterable<Integer> eulerianCycle() {
+    public Queue<Integer> eulerianCycle() {
         return cycle;
     }
 
@@ -84,4 +88,16 @@ public class EulerianCycle {
         }
         return adj;
     }
+
+    public boolean hamiltonianCircuit (Queue<Integer> eulerianCycle) {
+
+        double tourWeight = 0;
+        int firstVertex = eulerianCycle.element();
+
+        Set<Integer> removeDuplicates = new LinkedHashSet<>(eulerianCycle);
+
+        return false;
+    }
+
+
 }

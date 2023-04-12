@@ -76,6 +76,11 @@ public class Prims {
         System.out.println("printing Eulerian cycle " + eu.eulerianCycle());
         System.out.println("has Eulerian cycle " + eu.hasEulerianCycle());
 
+        Queue<Integer> eulerTour = eu.eulerianCycle();
+        System.out.println("euler tour " + eulerTour);
+
+        System.out.println(eu.hamiltonianCircuit(eulerTour));
+
 
 
 
