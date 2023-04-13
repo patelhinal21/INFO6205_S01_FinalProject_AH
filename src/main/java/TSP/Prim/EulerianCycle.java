@@ -89,15 +89,72 @@ public class EulerianCycle {
         return adj;
     }
 
-    public boolean hamiltonianCircuit (Queue<Integer> eulerianCycle) {
+    public double hamiltonianCircuit(Queue<Integer> eulerianCycle, List<CityDetails> places) {
 
         double tourWeight = 0;
         int firstVertex = eulerianCycle.element();
 
         Set<Integer> removeDuplicates = new LinkedHashSet<>(eulerianCycle);
+        System.out.println("hamilton circuit " + removeDuplicates);
+        List<Integer> listVertices = new ArrayList<>(removeDuplicates.stream().toList());
+        listVertices.add(firstVertex);
+        System.out.println("after adding initial vertex " + listVertices);
 
-        return false;
+        for (int i = 0; i < listVertices.size() - 1; i++) {
+            int a = listVertices.get(i);
+            int b = listVertices.get(i + 1);
+            System.out.println("a " + a);
+            System.out.println("b " + b);
+            double distanceUsingFormula = getDistance(a,b, places);
+            System.out.println("distance in km for given points " + a + " and " + b + " is " + distanceUsingFormula);
+            tourWeight = tourWeight + distanceUsingFormula;
+        }
+
+        System.out.println("tour weight " + tourWeight);
+
+        return tourWeight;
     }
+
+    public double getDistance(int a, int b, List<CityDetails> places) {
+
+        double lat1 = places.get(a).getLat();
+        double lng1 = places.get(a).getLng();
+
+        double lat2 = places.get(b).getLat();
+        double lng2 = places.get(b).getLng();
+
+        double result = distanceUsingFormula(lat1, lat2, lng1,lng2);
+
+
+        return result;
+    }
+
+    public double distanceUsingFormula(double lat1, double lat2, double lng1, double lng2) {
+        lng1 = Math.toRadians(lng1);
+        lng2 = Math.toRadians(lng2);
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        // Haversine formula
+        double dlon = lng2 - lng1;
+        double dlat = lat2 - lat1;
+        double a = Math.pow(Math.sin(dlat / 2), 2)
+                + Math.cos(lat1) * Math.cos(lat2)
+                * Math.pow(Math.sin(dlon / 2),2);
+
+        double c = 2 * Math.asin(Math.sqrt(a));
+
+        // Radius of earth in kilometers. Use 3956
+        // for miles
+        double r = 6371;
+
+        // calculate the result
+        return(c * r);
+    }
+
+
+
+
 
 
 }
