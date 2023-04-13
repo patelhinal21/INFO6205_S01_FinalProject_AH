@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="hamiltonian circuit">
+    <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/CityDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/CityDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +49,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.Prims" />
-      <module name="INFO6205_S01_FinalProject_AH" />
+      <module name="Final_Project_PSA_S01_AH" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TSP.Prim.*" />

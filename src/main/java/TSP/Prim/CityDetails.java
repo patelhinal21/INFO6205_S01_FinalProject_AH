@@ -7,7 +7,7 @@ public class CityDetails {
     private final double lng;
 
 
-    public CityDetails(int a, double lat, double lng) {
+    public CityDetails(int a, double lng, double lat) {
         this.a = a;
         this.lat = lat;
         this.lng = lng;
