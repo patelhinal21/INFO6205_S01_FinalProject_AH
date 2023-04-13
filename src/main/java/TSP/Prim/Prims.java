@@ -1,9 +1,6 @@
 package TSP.Prim;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Prims {
     private boolean[] marked; // MST vertices
@@ -61,6 +58,21 @@ public class Prims {
         edgeWeightedGraph.addEdge(e9);
         edgeWeightedGraph.addEdge(e10);
 
+        List<CityDetails> cityDetailsList = new ArrayList<>();
+
+        CityDetails c1 = new CityDetails(0,-0.016542,51.515192);
+        CityDetails c2 = new CityDetails(1,-0.236815,51.406763);
+        CityDetails c3 = new CityDetails(2,-0.184411,51.495871);
+        CityDetails c4 = new CityDetails(3,-0.268832,51.464685);
+        CityDetails c5 = new CityDetails(4,-0.098618,51.415897);
+
+        cityDetailsList.add(c1);
+        cityDetailsList.add(c2);
+        cityDetailsList.add(c3);
+        cityDetailsList.add(c4);
+        cityDetailsList.add(c5);
+
+
         Prims prims = new Prims(edgeWeightedGraph);
 
         System.out.println("minimum spanning tree " + prims.mst);
@@ -79,11 +91,7 @@ public class Prims {
         Queue<Integer> eulerTour = eu.eulerianCycle();
         System.out.println("euler tour " + eulerTour);
 
-        System.out.println(eu.hamiltonianCircuit(eulerTour));
-
-
-
-
+        System.out.println(eu.hamiltonianCircuit(eulerTour, cityDetailsList));
 
     }
 }

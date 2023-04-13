@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
+    <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="hamiltonian circuit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianTour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +49,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.Prims" />
-      <module name="Final_Project_PSA_S01_AH" />
+      <module name="INFO6205_S01_FinalProject_AH" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TSP.Prim.*" />
@@ -82,6 +80,14 @@
       <workItem from="1680554166447" duration="3749000" />
       <workItem from="1681155327663" duration="771000" />
     </task>
+    <task id="LOCAL-00001" summary="hamiltonian circuit">
+      <created>1681333605709</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681333605709</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,7 +105,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="hamiltonian circuit" />
+    <option name="LAST_COMMIT_MESSAGE" value="hamiltonian circuit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
