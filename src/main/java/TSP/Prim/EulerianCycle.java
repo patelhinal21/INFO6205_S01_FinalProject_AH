@@ -25,13 +25,21 @@ public class EulerianCycle {
         }
 
         // Find a vertex with nonzero degree (if it exists)
-        int s = 0;
+        int min = 0;
+        int max = 155;
+        int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
+//        int s = 0;
+        int s = random_int;
+        System.out.println("value of s in Eulerian cycle which is the value of starting vertex " + s);
+
         while (s < V && degree[s] % 2 == 0) {
             s++;
         }
         if (s == V) {
             // Graph has even degree, so start anywhere
-            s = 0;
+//            s = 0;
+            s = random_int;
+
         }
 
         Stack<Integer> stack = new Stack<>();

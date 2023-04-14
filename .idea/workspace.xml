@@ -7,9 +7,6 @@
     <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1680477459434" duration="72000" />
       <workItem from="1680554166447" duration="3749000" />
       <workItem from="1681155327663" duration="771000" />
-      <workItem from="1681421993757" duration="17554000" />
+      <workItem from="1681421993757" duration="18706000" />
     </task>
     <task id="LOCAL-00001" summary="hamiltonian circuit">
       <created>1681333605709</created>
@@ -155,11 +152,6 @@
           <line>9</line>
           <properties field="mstWithEvenVertices" class="TSP.Prim.EulerianTour" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java</url>
-          <line>404</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
