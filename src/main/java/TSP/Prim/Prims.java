@@ -33,31 +33,8 @@ public class Prims {
     }
 
     public static void main(String[] args) {
-        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(9);
-        Edge e1 = new Edge(0, 1, 12);
-        Edge e2 = new Edge(0, 2, 10);
-        Edge e3 = new Edge(0, 3, 19);
-        Edge e4 = new Edge(0, 4, 8);
-        Edge e5 = new Edge(1, 2, 3);
-        Edge e6 = new Edge(1, 3, 7);
-        Edge e7 = new Edge(1, 4, 2);
-        Edge e8 = new Edge(2, 3, 6);
-        Edge e9 = new Edge(2, 4, 4);
-        Edge e10 = new Edge(3, 4, 4);
-
-        edgeWeightedGraph.addEdge(e1);
-        edgeWeightedGraph.addEdge(e2);
-        edgeWeightedGraph.addEdge(e3);
-        edgeWeightedGraph.addEdge(e4);
-        edgeWeightedGraph.addEdge(e5);
-        edgeWeightedGraph.addEdge(e6);
-        edgeWeightedGraph.addEdge(e7);
-        edgeWeightedGraph.addEdge(e8);
-        edgeWeightedGraph.addEdge(e9);
-        edgeWeightedGraph.addEdge(e10);
-
         List<CityDetails> cityDetailsList = new ArrayList<>();
-
+//
         CityDetails c0 = new CityDetails(0, -0.016542, 51.515192);
         CityDetails c1 = new CityDetails(1, -0.236815, 51.406763);
         CityDetails c2 = new CityDetails(2, -0.184411, 51.495871);
@@ -79,7 +56,7 @@ public class Prims {
         CityDetails c18 = new CityDetails(18, -0.062154, 51.589955);
         CityDetails c19 = new CityDetails(19, -0.018941, 51.498093);
         CityDetails c20 = new CityDetails(20, -0.092147, 51.504262);
-        CityDetails c21 = new CityDetails(21, 0.084965, 0.084965);
+        CityDetails c21 = new CityDetails(21, 0.084965, 51.479124);
         CityDetails c22 = new CityDetails(22, 0.051925, 51.431874);
         CityDetails c23 = new CityDetails(23, -0.143083, 51.538657);
         CityDetails c24 = new CityDetails(24, -0.180905, 51.575851);
@@ -214,7 +191,7 @@ public class Prims {
         CityDetails c153 = new CityDetails(153, -0.023898,	51.386406);
         CityDetails c154 = new CityDetails(154, 0.072159,	51.540025);
         CityDetails c155 = new CityDetails(155, -0.303896,	51.527343);
-
+//
         cityDetailsList.add(c0);
         cityDetailsList.add(c1);
         cityDetailsList.add(c2);
@@ -337,6 +314,7 @@ public class Prims {
         cityDetailsList.add(c119);
         cityDetailsList.add(c120);
         cityDetailsList.add(c121);
+        cityDetailsList.add(c122);
         cityDetailsList.add(c123);
         cityDetailsList.add(c124);
         cityDetailsList.add(c125);
@@ -371,14 +349,62 @@ public class Prims {
         cityDetailsList.add(c154);
         cityDetailsList.add(c155);
 
+        CalculateCityWeights obj = new CalculateCityWeights(cityDetailsList);
+        HashMap<String, Double> cityWeightMap = obj.cityWeights();
+//
+        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(156);
+
+        for(int i = 0; i < 155 ; i++)
+        {
+            for(int j= i+1; j < 156; j++)
+            {
+                double val = cityWeightMap.get("" + i + "-" + "" + j);
+             Edge e = new Edge(i,j, val);
+             edgeWeightedGraph.addEdge(e);
+            }
+        }
+
+//        System.out.println("edge weighted graph in loop " + edgeWeightedGraph);
+//        System.out.println("edge weighted graph in loop " + edgeWeightedGraph);
+//        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(5);
+//        Edge e1 = new Edge(0, 1, 12);
+//        Edge e2 = new Edge(0, 2, 10);
+//        Edge e3 = new Edge(0, 3, 19);
+//        Edge e4 = new Edge(0, 4, 8);
+//        Edge e5 = new Edge(1, 2, 3);
+//        Edge e6 = new Edge(1, 3, 7);
+//        Edge e7 = new Edge(1, 4, 2);
+//        Edge e8 = new Edge(2, 3, 6);
+//        Edge e9 = new Edge(2, 4, 4);
+//        Edge e10 = new Edge(3, 4, 4);
+//
+//        edgeWeightedGraph.addEdge(e1);
+//        edgeWeightedGraph.addEdge(e2);
+//        edgeWeightedGraph.addEdge(e3);
+//        edgeWeightedGraph.addEdge(e4);
+//        edgeWeightedGraph.addEdge(e5);
+//        edgeWeightedGraph.addEdge(e6);
+//        edgeWeightedGraph.addEdge(e7);
+//        edgeWeightedGraph.addEdge(e8);
+//        edgeWeightedGraph.addEdge(e9);
+//        edgeWeightedGraph.addEdge(e10);
+
+
+
         Prims prims = new Prims(edgeWeightedGraph);
+        System.out.println("number of vertices " + edgeWeightedGraph.V());
+//        System.out.println("city details size " + cityDetailsList.size());
 
         System.out.println("minimum spanning tree " + prims.mst);
         HashMap<Integer, Integer> oddEvenVertices = FindOddVertices.getOddEvenVertices(prims.mst);
         System.out.println("odd even vertices " + oddEvenVertices);
-        System.out.println("array entries of odd vertices " + FindOddVertices.oddVertices(oddEvenVertices));
-        List<Edge> pairs = PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph, FindOddVertices.oddVertices(oddEvenVertices));
+        ArrayList<Integer> oddVerticesArrayList = new ArrayList<>();
+        oddVerticesArrayList = FindOddVertices.oddVertices(oddEvenVertices);
+        System.out.println("array entries of odd vertices " + oddVerticesArrayList);
+
+        List<Edge> pairs = PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph, oddVerticesArrayList);
         System.out.println("pairs " + pairs);
+        System.out.println( "number of pairs " + pairs.size());
         prims.mst.addAll(pairs);
         System.out.println("multigraph after adding pairs " + prims.mst);
 
@@ -388,6 +414,8 @@ public class Prims {
         Queue<Integer> eulerTour = eu.eulerianCycle();
         System.out.println("euler tour " + eulerTour);
         System.out.println(eu.hamiltonianCircuit(eulerTour, cityDetailsList));
+//        System.out.println(eu.hamiltonianCircuit(eulerTour));
+
 
     }
 }
