@@ -8,6 +8,9 @@ public class EulerianCycle {
 
     private Queue<Edge> multigraph;
 
+    public EulerianCycle() {
+    }
+
     public EulerianCycle(Queue<Edge> multigraph) {
         this.multigraph = multigraph;
         int V = getNumberOfVertices(multigraph);
@@ -38,7 +41,7 @@ public class EulerianCycle {
             int v = stack.pop();
             while (!adj[v].isEmpty()) {
                 Edge e = adj[v].remove(0);
-                System.out.println("edge " + e);
+//                System.out.println("edge " + e);
                 int w = e.other(v);
                 stack.push(v);
                 v = w;
@@ -89,7 +92,7 @@ public class EulerianCycle {
         return adj;
     }
 
-    public double hamiltonianCircuit(Queue<Integer> eulerianCycle, List<CityDetails> places) {
+    public double hamiltonianCircuit(Queue<Integer> eulerianCycle , List<CityDetails> places ) {
 
         double tourWeight = 0;
         int firstVertex = eulerianCycle.element();
@@ -103,10 +106,10 @@ public class EulerianCycle {
         for (int i = 0; i < listVertices.size() - 1; i++) {
             int a = listVertices.get(i);
             int b = listVertices.get(i + 1);
-            System.out.println("a " + a);
-            System.out.println("b " + b);
+//            System.out.println("a " + a);
+//            System.out.println("b " + b);
             double distanceUsingFormula = getDistance(a,b, places);
-            System.out.println("distance in km for given points " + a + " and " + b + " is " + distanceUsingFormula);
+//            System.out.println("distance in km for given points " + a + " and " + b + " is " + distanceUsingFormula);
             tourWeight = tourWeight + distanceUsingFormula;
         }
 
@@ -130,10 +133,13 @@ public class EulerianCycle {
     }
 
     public double distanceUsingFormula(double lat1, double lat2, double lng1, double lng2) {
+//        System.out.println("lat1 " + lat1 + " lat2 " + lat2 + " lng1 " + lng1 + " lng2 " + lng2);
         lng1 = Math.toRadians(lng1);
         lng2 = Math.toRadians(lng2);
         lat1 = Math.toRadians(lat1);
         lat2 = Math.toRadians(lat2);
+
+//        System.out.println("after radian conversion " + "lat1 " + lat1 + " lat2 " + lat2 + " lng1 " + lng1 + " lng2 " + lng2);
 
         // Haversine formula
         double dlon = lng2 - lng1;
@@ -150,6 +156,17 @@ public class EulerianCycle {
 
         // calculate the result
         return(c * r);
+    }
+
+    public static void main(String[] args) {
+        EulerianCycle eCycle = new EulerianCycle();
+        double lat1 = 51.514195;
+        double lat2 = 51.515753;
+        double lgn1 = -0.145735;
+        double lgn2 = -0.143092;
+
+        double weight = eCycle.distanceUsingFormula(lat1, lat2, lgn1,lgn2);
+        System.out.println(weight);
     }
 
 

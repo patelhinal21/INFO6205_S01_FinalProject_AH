@@ -12,26 +12,31 @@ public class PerfectMatching {
         for (Integer o : A) {
             for (Edge e : G.adj(o)) {
                 int v1 = o;
-                double weight = e.getWeight();
-                if (e.other(v1) != 1) {
-                    edgesForPerfectMatching.put(e, weight);
+                double weight = e.getWeight(); // write a for loop with instead of 1, all of the numbers in arraylist
+                for(int j = 0; j< A.size(); j++) {
+                    if (e.other(v1) == A.get(j)) {
+                        edgesForPerfectMatching.put(e, weight);
+                }
+
                 }
             }
         }
 
 //         method to get all edges and sort
-        TreeMap<Edge, Double> edgesForPerfectMatching1 = new TreeMap<>();
-        for (Edge e : G.adj(A.indexOf(i))) {
-            double weight = e.getWeight();
-            edgesForPerfectMatching1.put(e, weight);
-        }
-
-        System.out.println("tree map " + edgesForPerfectMatching1);
+//        TreeMap<Edge, Double> edgesForPerfectMatching1 = new TreeMap<>();
+//        for (Edge e : G.adj(A.indexOf(i))) {
+//            double weight = e.getWeight();
+//            edgesForPerfectMatching1.put(e, weight);
+//        }
+//
+//        System.out.println("tree map " + edgesForPerfectMatching1);
 
 
 //        method to sort edges
+
         List<Map.Entry<Edge, Double>> listValues = new LinkedList<>(edgesForPerfectMatching.entrySet());
         listValues.sort(Map.Entry.comparingByValue());
+        System.out.println("sorted edges values " + listValues);
 
         HashMap<Edge, Double> sortedHashMap = new LinkedHashMap<>();
         for (Map.Entry<Edge, Double> itr : listValues) {
