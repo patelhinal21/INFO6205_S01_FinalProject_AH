@@ -33,7 +33,7 @@ public class CalculateCityWeights {
                 double dist = ec.getDistance(i,j, cityDetailsList);
 //                System.out.println(dist);
                 count = count + 1;
-                cityDistance.put("" + i + "-" + "" + j, dist);
+                cityDistance.put(i + "-" + j, dist);
 
             }
         }

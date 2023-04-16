@@ -100,9 +100,9 @@ public class EulerianCycle {
         return adj;
     }
 
-    public double hamiltonianCircuit(Queue<Integer> eulerianCycle , List<CityDetails> places ) {
+    public List<Integer> hamiltonianCircuitPath(Queue<Integer> eulerianCycle  ) {
 
-        double tourWeight = 0;
+
         int firstVertex = eulerianCycle.element();
 
         Set<Integer> removeDuplicates = new LinkedHashSet<>(eulerianCycle);
@@ -111,6 +111,11 @@ public class EulerianCycle {
         listVertices.add(firstVertex);
         System.out.println("after adding initial vertex " + listVertices);
 
+       return listVertices;
+    }
+
+    public double hamiltonianCircuitTourWeight( List<Integer> listVertices,List<CityDetails> places){
+        double tourWeight = 0;
         for (int i = 0; i < listVertices.size() - 1; i++) {
             int a = listVertices.get(i);
             int b = listVertices.get(i + 1);
@@ -125,7 +130,6 @@ public class EulerianCycle {
 
         return tourWeight;
     }
-
     public double getDistance(int a, int b, List<CityDetails> places) {
 
         double lat1 = places.get(a).getLat();
