@@ -12,7 +12,7 @@ public class TwoOpt {
         while (improve) {
             improve = false;
             for (int i = 0; i < n - 2; i++) {
-                for (int j = i + 2; j < n; j++) {
+                for (int j = i + 2; j < n-1; j++) {
                     double dist1 = getDistance(edges, tour.get(i), tour.get(i+1));
                     double dist2 = getDistance(edges, tour.get(j), tour.get((j+1)%n));
                     double dist3 = getDistance(edges, tour.get(i), tour.get(j));
@@ -23,11 +23,11 @@ public class TwoOpt {
 //                    System.out.println("distances3 "+ dist3);
 //                    System.out.println("distances4 " + dist4);
 //                    System.out.println("delta value "+ delta);
-                    if (delta < 0.0) {
+                    if (delta < -1.0) {
 
                         tour = reverse(tour, i+1, j);
                         //System.out.println("reverse tour "+ tour);
-                        tourWeight = tourWeight - dist1 - dist2 + dist3 + dist4; // update tour weight
+                        tourWeight = tourWeight + delta; // update tour weight
                         improve = true;
                     }
                     //System.out.println( "i " + i + "-" + " j " + j);
