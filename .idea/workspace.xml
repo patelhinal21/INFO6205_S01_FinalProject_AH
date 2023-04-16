@@ -7,8 +7,6 @@
     <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/CalculateCityWeights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/CalculateCityWeights.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

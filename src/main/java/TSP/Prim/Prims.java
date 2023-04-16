@@ -106,6 +106,6 @@ public class Prims {
         System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
         TwoOpt twoOptObject = new TwoOpt();
         //twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap);
-        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap));
+        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap,hamiltonianCircuitTourWeight));
     }
 }

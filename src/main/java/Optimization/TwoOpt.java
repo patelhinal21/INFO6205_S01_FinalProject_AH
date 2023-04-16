@@ -5,10 +5,10 @@ import java.util.*;
 import TSP.Prim.*;
 public class TwoOpt {
 
-    public Map<String, Object> twoOptCalculation(List<Integer> tour, HashMap<String, Double>  edges) {
+    public Map<String, Object> twoOptCalculation(List<Integer> tour, HashMap<String, Double>  edges, double hamiltonianCircuitTourWeight) {
         int n = tour.size();
         boolean improve = true;
-        double tourWeight = getTourWeight(tour, edges); // calculate initial tour weight
+        double tourWeight = hamiltonianCircuitTourWeight;
         while (improve) {
             improve = false;
             for (int i = 0; i < n - 2; i++) {
@@ -30,7 +30,7 @@ public class TwoOpt {
                         tourWeight = tourWeight - dist1 - dist2 + dist3 + dist4; // update tour weight
                         improve = true;
                     }
-                    System.out.println( "i " + i + "-" + " j " + j);
+                    //System.out.println( "i " + i + "-" + " j " + j);
                 }
 
             }
@@ -46,7 +46,7 @@ public class TwoOpt {
     private static double getDistance(HashMap<String, Double> edges, int u, int v) {
         String edgeKey = u + "-" + v;
         if (edges.containsKey(edgeKey)) {
-            System.out.println("inside getDistance if");
+            //System.out.println("inside getDistance if");
             return edges.get(edgeKey);
         }
         // If the edge is not found, return a large value as infinity
