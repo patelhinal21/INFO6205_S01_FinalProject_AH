@@ -83,6 +83,7 @@ public class Prims {
 //        System.out.println("city details size " + cityDetailsList.size());
 
         System.out.println("minimum spanning tree " + prims.mst);
+
         HashMap<Integer, Integer> oddEvenVertices = FindOddVertices.getOddEvenVertices(prims.mst);
         System.out.println("odd even vertices " + oddEvenVertices);
         ArrayList<Integer> oddVerticesArrayList = new ArrayList<>();

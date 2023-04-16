@@ -25,16 +25,17 @@ public class CalculateCityWeights {
         }
         System.out.println("cities " + cities.size());
         HashMap<String, Double> cityDistance = new LinkedHashMap<>();
-        for(int i = 0; i <cities.size()-1; i++)
+        for(int i = 0; i <cities.size(); i++)
         {
-            for(int j= i+1; j < cities.size(); j++)
+            for(int j= 0; j < cities.size(); j++)
             {
+                if(i!=j) {
 //                System.out.println("i " + i + " j " + j);
-                double dist = ec.getDistance(i,j, cityDetailsList);
+                    double dist = ec.getDistance(i, j, cityDetailsList);
 //                System.out.println(dist);
-                count = count + 1;
-                cityDistance.put(i + "-" + j, dist);
-
+                    count = count + 1;
+                    cityDistance.put(i + "-" + j, dist);
+                }
             }
         }
 
