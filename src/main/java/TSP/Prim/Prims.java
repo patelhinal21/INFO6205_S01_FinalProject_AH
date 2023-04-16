@@ -1,5 +1,7 @@
 package TSP.Prim;
 
+import Optimization.TwoOpt;
+
 import java.util.*;
 
 public class Prims {
@@ -38,7 +40,7 @@ public class Prims {
         CityDataHelper helper = new CityDataHelper();
         List<CityDetails> cityDetailsList = helper.cityList();
         HashMap<String, Double> cityWeightMap = helper.cityDistances(cityDetailsList);
-
+        System.out.println("city Weights "+ cityWeightMap);
         EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(156);
 
         for (int i = 0; i < 155; i++) {
@@ -98,9 +100,12 @@ public class Prims {
         System.out.println("has Eulerian cycle " + eu.hasEulerianCycle());
         Queue<Integer> eulerTour = eu.eulerianCycle();
         System.out.println("euler tour " + eulerTour);
-        System.out.println(eu.hamiltonianCircuit(eulerTour, cityDetailsList));
-//        System.out.println(eu.hamiltonianCircuit(eulerTour));
-
-
+        List<Integer> hamiltonianCircuitPathList = eu.hamiltonianCircuitPath(eulerTour);
+        System.out.println(" hamilton tour path " + hamiltonianCircuitPathList);
+        double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,cityDetailsList);
+        System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
+        TwoOpt twoOptObject = new TwoOpt();
+        //twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap);
+        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap));
     }
 }

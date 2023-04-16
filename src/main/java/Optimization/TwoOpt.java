@@ -1,69 +1,82 @@
 package Optimization;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
 import TSP.Prim.*;
 public class TwoOpt {
 
-
-
-
-    public static int[] twoOpt(int[] tour, int[][] edges) {
-        int n = tour.length;
+    public Map<String, Object> twoOptCalculation(List<Integer> tour, HashMap<String, Double>  edges) {
+        int n = tour.size();
         boolean improve = true;
+        double tourWeight = getTourWeight(tour, edges); // calculate initial tour weight
         while (improve) {
             improve = false;
             for (int i = 0; i < n - 2; i++) {
                 for (int j = i + 2; j < n; j++) {
-                    int dist1 = getDistance(edges, tour[i], tour[i+1]);
-                    int dist2 = getDistance(edges, tour[j], tour[(j+1)%n]);
-                    int dist3 = getDistance(edges, tour[i], tour[j]);
-                    int dist4 = getDistance(edges, tour[i+1], tour[(j+1)%n]);
-                    int delta = (dist1 + dist2) - (dist3 + dist4);
-                    if (delta < 0) {
+                    double dist1 = getDistance(edges, tour.get(i), tour.get(i+1));
+                    double dist2 = getDistance(edges, tour.get(j), tour.get((j+1)%n));
+                    double dist3 = getDistance(edges, tour.get(i), tour.get(j));
+                    double dist4 = getDistance(edges, tour.get(i+1), tour.get((j+1)%n));
+                    double delta = (dist1 + dist2) - (dist3 + dist4);
+//                    System.out.println("distances1 "+ dist1);
+//                    System.out.println("distances2 "+ dist2);
+//                    System.out.println("distances3 "+ dist3);
+//                    System.out.println("distances4 " + dist4);
+//                    System.out.println("delta value "+ delta);
+                    if (delta < 0.0) {
+
                         tour = reverse(tour, i+1, j);
+                        //System.out.println("reverse tour "+ tour);
+                        tourWeight = tourWeight - dist1 - dist2 + dist3 + dist4; // update tour weight
                         improve = true;
                     }
+                    System.out.println( "i " + i + "-" + " j " + j);
                 }
+
             }
         }
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("tourWeight", tourWeight);
+        result.put("tour", tour);
+        return result;
 
-        return tour;
     }
 
-    private static int getDistance(int[][] edges, int u, int v) {
-        for (int[] edge : edges) {
-            if ((edge[0] == u && edge[1] == v) || (edge[0] == v && edge[1] == u)) {
-                return edge[2];
-            }
+
+    private static double getDistance(HashMap<String, Double> edges, int u, int v) {
+        String edgeKey = u + "-" + v;
+        if (edges.containsKey(edgeKey)) {
+            System.out.println("inside getDistance if");
+            return edges.get(edgeKey);
         }
-        return -1; // distance not found
+        // If the edge is not found, return a large value as infinity
+        return 1.0;
     }
 
-    private static int[] reverse(int[] arr, int i, int j) {
+
+
+
+    private static List<Integer> reverse(List<Integer> arr, int i, int j) {
         while (i < j) {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            int temp = arr.get(i);
+            arr.set(i, arr.get(j));
+            arr.set(j, temp);
             i++;
             j--;
         }
         return arr;
     }
 
-    public static void main(String[] args) {
-        int[][] edges = {
-                {0, 1, 10},
-                {0, 2, 15},
-                {0, 3, 20},
-                {1, 2, 35},
-                {1, 3, 25},
-                {2, 3, 30}
-        };
-        int[] tour = {0, 1, 2, 3};
-        System.out.println(Arrays.toString(twoOpt(tour, edges)));
 
+    private static double getTourWeight(List<Integer> tour, HashMap<String, Double> edges) {
+        int weight = 0;
+        for (int i = 0; i < tour.size() - 1; i++) {
+            double dist = getDistance(edges, tour.get(i), tour.get(i+1));
+            weight += dist;
+        }
+        return weight;
     }
+
+
+
 }
