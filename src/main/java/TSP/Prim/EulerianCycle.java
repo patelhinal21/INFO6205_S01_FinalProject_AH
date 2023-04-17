@@ -14,6 +14,7 @@ public class EulerianCycle {
     public EulerianCycle(Queue<Edge> multigraph) {
         this.multigraph = multigraph;
         int V = getNumberOfVertices(multigraph);
+        System.out.println("inside euler cycle size of multigraph " + V);
         degree = new int[V];
 
         // Create adjacency list and count degree of each vertex
@@ -26,7 +27,7 @@ public class EulerianCycle {
 
         // Find a vertex with nonzero degree (if it exists)
         int min = 0;
-        int max = 155;
+        int max = 584;
         int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
 //        int s = 0;
         int s = random_int;
@@ -114,15 +115,12 @@ public class EulerianCycle {
        return listVertices;
     }
 
-    public double hamiltonianCircuitTourWeight( List<Integer> listVertices,List<CityDetails> places){
-        double tourWeight = 0;
-        for (int i = 0; i < listVertices.size() - 1; i++) {
+    public double hamiltonianCircuitTourWeight(List<Integer> listVertices, List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim){
+        double tourWeight = 0.0;
+        for (int i = 0; i < listVertices.size()-1; i++) {
             int a = listVertices.get(i);
             int b = listVertices.get(i + 1);
-//            System.out.println("a " + a);
-//            System.out.println("b " + b);
-            double distanceUsingFormula = getDistance(a,b, places);
-//            System.out.println("distance in km for given points " + a + " and " + b + " is " + distanceUsingFormula);
+            double distanceUsingFormula = getDistance(a,b, masterVerticesToPrim);
             tourWeight = tourWeight + distanceUsingFormula;
         }
 
@@ -130,44 +128,13 @@ public class EulerianCycle {
 
         return tourWeight;
     }
-    public double getDistance(int a, int b, List<CityDetails> places) {
-
-        double lat1 = places.get(a).getLat();
-        double lng1 = places.get(a).getLng();
-
-        double lat2 = places.get(b).getLat();
-        double lng2 = places.get(b).getLng();
-
-        double result = distanceUsingFormula(lat1, lat2, lng1,lng2);
-
-
-        return result;
-    }
-
-    public double distanceUsingFormula(double lat1, double lat2, double lng1, double lng2) {
-//        System.out.println("lat1 " + lat1 + " lat2 " + lat2 + " lng1 " + lng1 + " lng2 " + lng2);
-        lng1 = Math.toRadians(lng1);
-        lng2 = Math.toRadians(lng2);
-        lat1 = Math.toRadians(lat1);
-        lat2 = Math.toRadians(lat2);
-
-//        System.out.println("after radian conversion " + "lat1 " + lat1 + " lat2 " + lat2 + " lng1 " + lng1 + " lng2 " + lng2);
-
-        // Haversine formula
-        double dlon = lng2 - lng1;
-        double dlat = lat2 - lat1;
-        double a = Math.pow(Math.sin(dlat / 2), 2)
-                + Math.cos(lat1) * Math.cos(lat2)
-                * Math.pow(Math.sin(dlon / 2),2);
-
-        double c = 2 * Math.asin(Math.sqrt(a));
-
-        // Radius of earth in kilometers. Use 3956
-        // for miles
-        double r = 6371;
-
-        // calculate the result
-        return(c * r);
+    public double getDistance(int a, int b, List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim) {
+        System.out.println("inside get distance");
+        if(b > a) {
+            b = b-1;
+        }
+        double weight = masterVerticesToPrim.get(a).get(b).getWeight();
+        return weight;
     }
 
     public static void main(String[] args) {
@@ -177,8 +144,11 @@ public class EulerianCycle {
         double lgn1 = -0.145735;
         double lgn2 = -0.143092;
 
-        double weight = eCycle.distanceUsingFormula(lat1, lat2, lgn1,lgn2);
-        System.out.println(weight);
+        LondoncrimeDetailsEdge londoncrimeDetailsEdge = new LondoncrimeDetailsEdge();
+        List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim = new ArrayList<>();
+        masterVerticesToPrim = londoncrimeDetailsEdge.getEdgeInfo();
+        double weight = eCycle.getDistance(3, 279, masterVerticesToPrim);
+        System.out.println("weight inside get distance " + weight);
     }
 
 

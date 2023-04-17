@@ -36,53 +36,37 @@ public class Prims {
 
     public static void main(String[] args) {
 
+        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(584);
 
-        CityDataHelper helper = new CityDataHelper();
-        List<CityDetails> cityDetailsList = helper.cityList();
-        HashMap<String, Double> cityWeightMap = helper.cityDistances(cityDetailsList);
-        System.out.println("city Weights "+ cityWeightMap);
-        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(156);
+        LondoncrimeDetailsEdge londoncrimeDetailsEdge = new LondoncrimeDetailsEdge();
+        List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim = new ArrayList<>();
+        masterVerticesToPrim = londoncrimeDetailsEdge.getEdgeInfo();
+        System.out.println("size of masterVerticesPrim " + masterVerticesToPrim.size());
 
-        for (int i = 0; i < 155; i++) {
-            for (int j = i + 1; j < 156; j++) {
-                double val = cityWeightMap.get("" + i + "-" + "" + j);
-                Edge e = new Edge(i, j, val);
+
+        for(int i = 0; i < 583; i++)
+        {
+            for(int j = i; j< 583; j++)
+            {
+                int v1 = masterVerticesToPrim.get(i).get(j).getL1().getRepresentation();
+                int v2 = masterVerticesToPrim.get(i).get(j).getL2().getRepresentation();
+                double weight = masterVerticesToPrim.get(i).get(j).getWeight();
+                Edge e = new Edge(v1, v2, weight);
                 edgeWeightedGraph.addEdge(e);
             }
         }
 
-//        System.out.println("edge weighted graph in loop " + edgeWeightedGraph);
-//        System.out.println("edge weighted graph in loop " + edgeWeightedGraph);
-//        EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(5);
-//        Edge e1 = new Edge(0, 1, 12);
-//        Edge e2 = new Edge(0, 2, 10);
-//        Edge e3 = new Edge(0, 3, 19);
-//        Edge e4 = new Edge(0, 4, 8);
-//        Edge e5 = new Edge(1, 2, 3);
-//        Edge e6 = new Edge(1, 3, 7);
-//        Edge e7 = new Edge(1, 4, 2);
-//        Edge e8 = new Edge(2, 3, 6);
-//        Edge e9 = new Edge(2, 4, 4);
-//        Edge e10 = new Edge(3, 4, 4);
-//
-//        edgeWeightedGraph.addEdge(e1);
-//        edgeWeightedGraph.addEdge(e2);
-//        edgeWeightedGraph.addEdge(e3);
-//        edgeWeightedGraph.addEdge(e4);
-//        edgeWeightedGraph.addEdge(e5);
-//        edgeWeightedGraph.addEdge(e6);
-//        edgeWeightedGraph.addEdge(e7);
-//        edgeWeightedGraph.addEdge(e8);
-//        edgeWeightedGraph.addEdge(e9);
-//        edgeWeightedGraph.addEdge(e10);
-
-
-
         Prims prims = new Prims(edgeWeightedGraph);
         System.out.println("number of vertices " + edgeWeightedGraph.V());
-//        System.out.println("city details size " + cityDetailsList.size());
 
         System.out.println("minimum spanning tree " + prims.mst);
+        double weightOfMst = 0;
+        for(Edge e: prims.mst)
+
+        {
+            weightOfMst = weightOfMst + e.getWeight();
+        }
+        System.out.println("weight of mst " + weightOfMst);
 
         HashMap<Integer, Integer> oddEvenVertices = FindOddVertices.getOddEvenVertices(prims.mst);
         System.out.println("odd even vertices " + oddEvenVertices);
@@ -102,11 +86,11 @@ public class Prims {
         Queue<Integer> eulerTour = eu.eulerianCycle();
         System.out.println("euler tour " + eulerTour);
         List<Integer> hamiltonianCircuitPathList = eu.hamiltonianCircuitPath(eulerTour);
-        System.out.println(" hamilton tour path " + hamiltonianCircuitPathList);
-        double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,cityDetailsList);
+        System.out.println(" hamilton tour path " + hamiltonianCircuitPathList + " " + "size " + hamiltonianCircuitPathList.size());
+        double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,masterVerticesToPrim);
         System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
         TwoOpt twoOptObject = new TwoOpt();
-        //twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap);
-        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap,hamiltonianCircuitTourWeight));
+//        twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap);
+//        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap,hamiltonianCircuitTourWeight));
     }
 }
