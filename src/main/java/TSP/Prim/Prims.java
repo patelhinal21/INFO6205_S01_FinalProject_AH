@@ -1,5 +1,6 @@
 package TSP.Prim;
 
+import Optimization.ThreeOpt;
 import Optimization.TwoOpt;
 
 import java.util.*;
@@ -90,7 +91,10 @@ public class Prims {
         double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,masterVerticesToPrim);
         System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
         TwoOpt twoOptObject = new TwoOpt();
-//        twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap);
-//        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,cityWeightMap,hamiltonianCircuitTourWeight));
+        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+        ThreeOpt threeOptObject = new ThreeOpt();
+        System.out.println("inside threeOptCalculation method "+ threeOptObject.threeOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+
+
     }
 }

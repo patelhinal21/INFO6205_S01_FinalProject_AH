@@ -56,7 +56,7 @@ public class LondonCrimeDetails {
         String line = "";
         String csvSplitBy = ",";
 
-        File fileObj = new File("/Users/aishwaryavenkatesan/Desktop/programming struct algo/INFO6205_S01_FinalProject_AH/src/main/java/TSP/Prim/psasampledatafinal.csv");
+        File fileObj = new File("/Users/hinalpatel/Desktop/INFO6205_S01_FinalProject_AH_new/src/main/java/TSP/Prim/HinalDataset.csv");
         try(BufferedReader br = new BufferedReader(new FileReader(fileObj))) {
             while((line = br.readLine()) != null)
             {
