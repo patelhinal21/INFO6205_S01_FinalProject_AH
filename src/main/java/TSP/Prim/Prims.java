@@ -1,5 +1,6 @@
 package TSP.Prim;
 
+import Optimization.SimulatedAnnealing;
 import Optimization.ThreeOpt;
 import Optimization.TwoOpt;
 import org.apache.commons.lang3.StringUtils;
