@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
+    <list default="true" id="fdd808ea-c027-4d4a-ad6f-bba2327a671a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/SimulatedAnnealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/SimulatedAnnealing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/ThreeOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/ThreeOpt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondonCrimeDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondonCrimeDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondoncrimeDetailsEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondoncrimeDetailsEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/FindOddVertices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/PerfectMatching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/projectImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/projectImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TSP/Prim/PerfectMatchingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TSP/Prim/PerfectMatchingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,21 +35,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/hinalpatel/Desktop/INFO6205_S01_FinalProject_AH_new/src/main/java/TSP/Prim",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
-  }
-}]]></component>
+  <component name="PropertiesComponent">{
+    &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hinalpatel/Desktop/INFO6205_S01_FinalProject_AH_new/src/main/java/TSP/Prim&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/TSP/Prim" />
@@ -76,10 +64,7 @@
       <recent name="TSP.Prim" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Prims">
-    <configuration name="EulerianCycle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TSP.Prim.EulerianCycle" />
-  <component name="RunManager" selected="Application.projectImpl">
+  <component name="RunManager" selected="JUnit.PerfectMatchingTest.test2">
     <configuration name="Prims" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -108,27 +93,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LondonCrimeDetails" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TSP.Prim.LondonCrimeDetails" />
-      <module name="INFO6205_S01_FinalProject_AH_new" />
-    <configuration name="PerfectMatchingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="INFO6205_S01_FinalProject_AH" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TSP.Prim.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TSP.Prim" />
-      <option name="MAIN_CLASS_NAME" value="TSP.Prim.PerfectMatchingTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LondoncrimeDetailsEdge" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TSP.Prim.LondoncrimeDetailsEdge" />
-      <module name="INFO6205_S01_FinalProject_AH_new" />
     <configuration name="PerfectMatchingTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="INFO6205_S01_FinalProject_AH" />
       <extension name="coverage">
@@ -161,30 +125,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreeOpt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Optimization.ThreeOpt" />
-      <module name="INFO6205_S01_FinalProject_AH_new" />
+    <configuration name="PrimsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="INFO6205_S01_FinalProject_AH" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Optimization.*" />
+          <option name="PATTERN" value="TSP.Prim.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="TSP.Prim" />
+      <option name="MAIN_CLASS_NAME" value="TSP.Prim.PrimsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PerfectMatchingTest.test2" />
+        <item itemvalue="JUnit.PerfectMatchingTest.test1" />
+        <item itemvalue="JUnit.PrimsTest" />
         <item itemvalue="Application.projectImpl" />
         <item itemvalue="Application.Prims" />
-        <item itemvalue="Application.ThreeOpt" />
-        <item itemvalue="Application.LondoncrimeDetailsEdge" />
-        <item itemvalue="Application.LondonCrimeDetails" />
-        <item itemvalue="Application.EulerianCycle" />
-        <item itemvalue="JUnit.PerfectMatchingTest.test1" />
-        <item itemvalue="JUnit.PerfectMatchingTest.test2" />
-        <item itemvalue="JUnit.PerfectMatchingTest" />
       </list>
     </recent_temporary>
   </component>

@@ -1,5 +1,6 @@
 package TSP.Prim;
 
+import Optimization.SimulatedAnnealing;
 import Optimization.ThreeOpt;
 import Optimization.TwoOpt;
 import org.apache.commons.lang3.StringUtils;
@@ -105,9 +106,12 @@ public class projectImpl {
         List<String> tourInHex = obj.representationOfTour(hamiltonianCircuitPathList, actualValues);
         System.out.println("tour in hex representation " + tourInHex);
         TwoOpt twoOptObject = new TwoOpt();
-        System.out.println("inside twoOptCalculation method " + twoOptObject.twoOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
+        System.out.println(" twoOptCalculation method " + twoOptObject.twoOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
         ThreeOpt threeOptObject = new ThreeOpt();
-        System.out.println("inside threeOptCalculation method " + threeOptObject.threeOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
+        System.out.println("threeOptCalculation method " + threeOptObject.threeOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
+
+        SimulatedAnnealing simulatedAnnealingObj = new SimulatedAnnealing(masterVerticesToPrim,100,0.003);
+        System.out.println("inside Simulated Annealing method "+ Arrays.toString(simulatedAnnealingObj.solve()));
 
 
     }
