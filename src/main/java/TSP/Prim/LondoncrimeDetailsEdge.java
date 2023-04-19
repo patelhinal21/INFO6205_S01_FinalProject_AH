@@ -113,5 +113,6 @@ public class LondoncrimeDetailsEdge {
     public static void main(String[] args) {
         LondoncrimeDetailsEdge edge = new LondoncrimeDetailsEdge();
         System.out.println("inside crime details edge "+ edge.getEdgeInfo().size());
+        System.out.println("sample value " + edge.getEdgeInfo().get(441).get(291));
     }
 }

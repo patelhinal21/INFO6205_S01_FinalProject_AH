@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="df373020-7133-4408-9f68-a5a2f378d4c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/SimulatedAnnealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/SimulatedAnnealing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/ThreeOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/ThreeOpt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Optimization/TwoOpt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondonCrimeDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondonCrimeDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondoncrimeDetailsEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/LondoncrimeDetailsEdge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP/Prim/Prims.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,19 +55,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Prims">
-    <configuration name="CalculateCityWeights" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TSP.Prim.CalculateCityWeights" />
-      <module name="INFO6205_S01_FinalProject_AH" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TSP.Prim.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EulerianCycle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.EulerianCycle" />
       <module name="INFO6205_S01_FinalProject_AH" />
@@ -78,7 +70,7 @@
     </configuration>
     <configuration name="LondonCrimeDetails" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.LondonCrimeDetails" />
-      <module name="INFO6205_S01_FinalProject_AH" />
+      <module name="INFO6205_S01_FinalProject_AH_new" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TSP.Prim.*" />
@@ -91,7 +83,7 @@
     </configuration>
     <configuration name="LondoncrimeDetailsEdge" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TSP.Prim.LondoncrimeDetailsEdge" />
-      <module name="INFO6205_S01_FinalProject_AH" />
+      <module name="INFO6205_S01_FinalProject_AH_new" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="TSP.Prim.*" />
@@ -117,13 +109,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreeOpt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Optimization.ThreeOpt" />
+      <module name="INFO6205_S01_FinalProject_AH_new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Optimization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Prims" />
+        <item itemvalue="Application.ThreeOpt" />
         <item itemvalue="Application.LondoncrimeDetailsEdge" />
-        <item itemvalue="Application.EulerianCycle" />
         <item itemvalue="Application.LondonCrimeDetails" />
-        <item itemvalue="Application.CalculateCityWeights" />
+        <item itemvalue="Application.EulerianCycle" />
       </list>
     </recent_temporary>
   </component>
@@ -190,11 +195,6 @@
           <line>9</line>
           <properties field="mstWithEvenVertices" class="TSP.Prim.EulerianTour" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TSP/Prim/EulerianCycle.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

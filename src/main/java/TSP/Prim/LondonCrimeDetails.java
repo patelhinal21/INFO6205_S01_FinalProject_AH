@@ -74,8 +74,8 @@ public class LondonCrimeDetails {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("sample array list " + sampleArrayList);
-        System.out.println("sample array list first entry " + sampleArrayList.get(0).getCrimeID() + " " + sampleArrayList.get(0).getLongitude() + " " + sampleArrayList.get(0).getLatitude() + " " + sampleArrayList.get(0).getRepresentation());
+        //System.out.println("sample array list " + sampleArrayList);
+       // System.out.println("sample array list first entry " + sampleArrayList.get(0).getCrimeID() + " " + sampleArrayList.get(0).getLongitude() + " " + sampleArrayList.get(0).getLatitude() + " " + sampleArrayList.get(0).getRepresentation());
         return sampleArrayList;
     }
 

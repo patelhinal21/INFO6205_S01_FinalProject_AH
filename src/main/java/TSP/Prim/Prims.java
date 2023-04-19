@@ -1,9 +1,5 @@
 package TSP.Prim;
 
-import Optimization.SimulatedAnnealing;
-import Optimization.ThreeOpt;
-import Optimization.TwoOpt;
-
 import java.util.*;
 
 public class Prims {
@@ -91,13 +87,15 @@ public class Prims {
         System.out.println(" hamilton tour path " + hamiltonianCircuitPathList + " " + "size " + hamiltonianCircuitPathList.size());
         double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,masterVerticesToPrim);
         System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
-        TwoOpt twoOptObject = new TwoOpt();
-        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
-        ThreeOpt threeOptObject = new ThreeOpt();
-        System.out.println("inside threeOptCalculation method "+ threeOptObject.threeOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
-        SimulatedAnnealing simulatedAnnealingObj = new SimulatedAnnealing(masterVerticesToPrim,100,0.003);
-        System.out.println("inside Simulated Annealing method "+ simulatedAnnealingObj.solve());
+        //TwoOpt twoOptObject = new TwoOpt();
+        //System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+        //ThreeOpt threeOptObject = new ThreeOpt();
+        //System.out.println("inside threeOptCalculation method "+ threeOptObject.threeOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+        //SimulatedAnnealing simulatedAnnealingObj = new SimulatedAnnealing(masterVerticesToPrim,100,0.003);
+        //System.out.println("inside Simulated Annealing method "+ Arrays.toString(simulatedAnnealingObj.solve()));
 
+        ThreeOpttest t3 = new ThreeOpttest();
+        System.out.println("3 opt test "+ t3.threeOpt(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
 
     }
 }

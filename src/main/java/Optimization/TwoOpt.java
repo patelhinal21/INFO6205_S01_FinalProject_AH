@@ -18,18 +18,12 @@ public class TwoOpt {
                     double dist3 = getDistance(masterVerticesToPrim, tour.get(i), tour.get(j));
                     double dist4 = getDistance(masterVerticesToPrim, tour.get(i+1), tour.get((j+1)%n));
                     double delta = (dist3 + dist4) - (dist1 + dist2);
-//                    System.out.println("distances1 "+ dist1);
-//                    System.out.println("distances2 "+ dist2);
-//                    System.out.println("distances3 "+ dist3);
-//                    System.out.println("distances4 " + dist4);
-                    //System.out.println("delta value "+ delta);
                     if (delta < 0.0) {
-                        tour = reverse(tour, i+1, j);
-                        //System.out.println("reverse tour "+ tour);
+                        tour = reverse(tour, i + 1, j);
+
                         tourWeight = tourWeight + delta; // update tour weight
                         improve = true;
                     }
-                    //System.out.println( "i " + i + "-" + " j " + j);
                 }
 
             }
@@ -47,8 +41,6 @@ public class TwoOpt {
             v = v-1;
         }
         double weight = masterVerticesToPrim.get(u).get(v).getWeight();
-        // If the edge is not found, return a large value as infinity
-
         return weight;
     }
 
