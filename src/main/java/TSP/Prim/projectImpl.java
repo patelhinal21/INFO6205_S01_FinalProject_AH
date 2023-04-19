@@ -2,26 +2,64 @@ package TSP.Prim;
 
 import Optimization.ThreeOpt;
 import Optimization.TwoOpt;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Queue;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class projectImpl {
+    public projectImpl() {
+    }
+
+    public HashMap<Integer, String> sampleArrayList1 = new LinkedHashMap<>();
+    public List<String> tourRepresentation = new ArrayList<>();
+
+    public HashMap<Integer, String> convertingDataToArrayList() {
+        String line = "";
+        String csvSplitBy = ",";
+
+        File fileObj = new File("/Users/aishwaryavenkatesan/Desktop/programming struct algo/INFO6205_S01_FinalProject_AH/src/main/java/TSP/Prim/psasampledatafinal.csv");
+        try (BufferedReader br = new BufferedReader(new FileReader(fileObj))) {
+            while ((line = br.readLine()) != null) {
+                String data[] = line.split(csvSplitBy);
+
+                String crimeId = data[0];
+                int repId = Integer.parseInt(data[3]);
+
+                String crimeNew = StringUtils.right(crimeId, 5);
+
+                sampleArrayList1.put(repId, crimeNew);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return sampleArrayList1;
+    }
+
+    public List<String> representationOfTour(List<Integer> hamiltonCircuit, HashMap<Integer, String> actualValues) {
+
+        for (int i : hamiltonCircuit) {
+            String val = actualValues.get(i);
+            tourRepresentation.add(val);
+        }
+
+        return tourRepresentation;
+    }
+
     public static void main(String[] args) {
         EdgeWeightedGraph edgeWeightedGraph = new EdgeWeightedGraph(584);
 
         LondoncrimeDetailsEdge londoncrimeDetailsEdge = new LondoncrimeDetailsEdge();
         List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim = new ArrayList<>();
         masterVerticesToPrim = londoncrimeDetailsEdge.getEdgeInfo();
-        System.out.println("size of masterVerticesPrim " + masterVerticesToPrim.size());
 
 
-        for(int i = 0; i < 583; i++)
-        {
-            for(int j = i; j< 583; j++)
-            {
+        for (int i = 0; i < 583; i++) {
+            for (int j = i; j < 583; j++) {
                 int v1 = masterVerticesToPrim.get(i).get(j).getL1().getRepresentation();
                 int v2 = masterVerticesToPrim.get(i).get(j).getL2().getRepresentation();
                 double weight = masterVerticesToPrim.get(i).get(j).getWeight();
@@ -31,42 +69,45 @@ public class projectImpl {
         }
 
         Prims prims = new Prims(edgeWeightedGraph);
-        System.out.println("number of vertices " + edgeWeightedGraph.V());
 
-        System.out.println("minimum spanning tree" + prims.mst);
+
+        System.out.println("minimum spanning tree " + prims.mst);
         double weightOfMst = 0;
-        for(Edge e: prims.mst)
-
-        {
+        for (Edge e : prims.mst) {
             weightOfMst = weightOfMst + e.getWeight();
         }
-        System.out.println("weight of mst " + weightOfMst);
+        System.out.println("weight of mst in km " + weightOfMst);
 
         HashMap<Integer, Integer> oddEvenVertices = FindOddVertices.getOddEvenVertices(prims.mst);
-        System.out.println("odd even vertices " + oddEvenVertices);
+
         ArrayList<Integer> oddVerticesArrayList = new ArrayList<>();
         oddVerticesArrayList = FindOddVertices.oddVertices(oddEvenVertices);
-        System.out.println("array entries of odd vertices " + oddVerticesArrayList);
+
 
         List<Edge> pairs = PerfectMatching.PerfectMatchingPairs(edgeWeightedGraph, oddVerticesArrayList);
-        System.out.println("pairs " + pairs);
-        System.out.println( "number of pairs " + pairs.size());
+        System.out.println("perfect matching pairs " + pairs);
+        System.out.println("number of pairs " + pairs.size());
         prims.mst.addAll(pairs);
         System.out.println("multigraph after adding pairs " + prims.mst);
 
         EulerianCycle eu = new EulerianCycle(prims.mst);
-        System.out.println("printing Eulerian cycle " + eu.eulerianCycle());
-        System.out.println("has Eulerian cycle " + eu.hasEulerianCycle());
         Queue<Integer> eulerTour = eu.eulerianCycle();
-        System.out.println("euler tour " + eulerTour);
+        System.out.println("printing Eulerian tour " + eulerTour);
         List<Integer> hamiltonianCircuitPathList = eu.hamiltonianCircuitPath(eulerTour);
-        System.out.println(" hamilton tour path " + hamiltonianCircuitPathList + " " + "size " + hamiltonianCircuitPathList.size());
-        double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList,masterVerticesToPrim);
-        System.out.println(" hamilton tour path weight " + hamiltonianCircuitTourWeight);
+        System.out.println(" hamilton tour path " + hamiltonianCircuitPathList);
+        double hamiltonianCircuitTourWeight = eu.hamiltonianCircuitTourWeight(hamiltonianCircuitPathList, masterVerticesToPrim);
+        System.out.println(" hamilton tour path weight in km " + hamiltonianCircuitTourWeight);
+        System.out.println(" hamilton tour path weight in metres " + hamiltonianCircuitTourWeight*1000);
+
+        projectImpl obj = new projectImpl();
+        HashMap<Integer, String> actualValues = new LinkedHashMap<>();
+        actualValues = obj.convertingDataToArrayList();
+        List<String> tourInHex = obj.representationOfTour(hamiltonianCircuitPathList, actualValues);
+        System.out.println("tour in hex representation " + tourInHex);
         TwoOpt twoOptObject = new TwoOpt();
-        System.out.println("inside twoOptCalculation method "+ twoOptObject.twoOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+        System.out.println("inside twoOptCalculation method " + twoOptObject.twoOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
         ThreeOpt threeOptObject = new ThreeOpt();
-        System.out.println("inside threeOptCalculation method "+ threeOptObject.threeOptCalculation(hamiltonianCircuitPathList,masterVerticesToPrim,hamiltonianCircuitTourWeight));
+        System.out.println("inside threeOptCalculation method " + threeOptObject.threeOptCalculation(hamiltonianCircuitPathList, masterVerticesToPrim, hamiltonianCircuitTourWeight));
 
 
     }

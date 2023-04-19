@@ -42,18 +42,17 @@ public class LondoncrimeDetailsEdge {
         this.weight = weight;
     }
 
-    public List<List<LondoncrimeDetailsEdge>> getEdgeInfo () {
+    public List<List<LondoncrimeDetailsEdge>> getEdgeInfo() {
         List<List<LondoncrimeDetailsEdge>> masterListOfVertices = new ArrayList<>();
 
 
         LondonCrimeDetails londonCrimeDetails = new LondonCrimeDetails();
         ArrayList<LondonCrimeDetails> dataSetValues = londonCrimeDetails.convertingDataToArrayList();
 
-        for(int i =0; i < 584; i++)
-        {
+        for (int i = 0; i < 584; i++) {
             List<LondoncrimeDetailsEdge> listPerVertex = new ArrayList<>();
 
-            for(int j =0; j < 584; j++) {
+            for (int j = 0; j < 584; j++) {
                 if (i != j) {
                     LondonCrimeDetails lcd1 = dataSetValues.get(i);
                     LondonCrimeDetails lcd2 = dataSetValues.get(j);
@@ -89,7 +88,7 @@ public class LondoncrimeDetailsEdge {
         double dlat = lat2 - lat1;
         double a = Math.pow(Math.sin(dlat / 2), 2)
                 + Math.cos(lat1) * Math.cos(lat2)
-                * Math.pow(Math.sin(dlon / 2),2);
+                * Math.pow(Math.sin(dlon / 2), 2);
 
         double c = 2 * Math.asin(Math.sqrt(a));
 
@@ -98,7 +97,7 @@ public class LondoncrimeDetailsEdge {
         double r = 6371;
 
         // calculate the result
-        return(c * r);
+        return (c * r);
     }
 
     @Override
@@ -110,8 +109,4 @@ public class LondoncrimeDetailsEdge {
                 '}';
     }
 
-//    public static void main(String[] args) {
-//        LondoncrimeDetailsEdge edge = new LondoncrimeDetailsEdge();
-//        System.out.println("inside crime details edge "+ edge.getEdgeInfo().size());
-//    }
 }

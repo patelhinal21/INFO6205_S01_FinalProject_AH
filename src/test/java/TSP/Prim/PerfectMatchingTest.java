@@ -36,9 +36,9 @@ class PerfectMatchingTest {
 
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(0);
-        arr.add(2);
         arr.add(3);
         arr.add(4);
+        arr.add(5);
 
        List<Edge> expectedEdgeList = new ArrayList<>();
        expectedEdgeList.add(e9);
