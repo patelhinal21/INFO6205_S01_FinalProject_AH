@@ -38,5 +38,4 @@ public class Prims {
     public Iterable<Edge> edges() {
         return mst;
     }
-
 }

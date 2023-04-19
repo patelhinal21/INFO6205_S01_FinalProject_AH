@@ -5,6 +5,8 @@ import TSP.Prim.LondoncrimeDetailsEdge;
 import java.util.*;
 
 public class ThreeOpt {
+    public ThreeOpt() {
+    }
 
     public Map<String, Object> threeOptCalculation(List<Integer> tour, List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim, double hamiltonianCircuitTourWeight) {
         int n = tour.size();
@@ -13,9 +15,9 @@ public class ThreeOpt {
         int count = 0; // add a counter to prevent infinite loop
         while (improve && count < 5) { // limit the loop to 1000 iterations
             improve = false;
-            for (int i = 0; i < n - 4; i++) {
-                for (int j = i + 2; j < n - 2; j++) {
-                    for (int k = j + 2; k < n; k++) {
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = i + 2; j < n - 1; j++) {
+                    for (int k = j + 2; k < n-1; k++) {
                         double dist1 = getDistance(masterVerticesToPrim, tour.get(i), tour.get(i+1));
                         double dist2 = getDistance(masterVerticesToPrim, tour.get(j), tour.get(j+1));
                         double dist3 = getDistance(masterVerticesToPrim, tour.get(k), tour.get((k+1)%n));
@@ -24,10 +26,10 @@ public class ThreeOpt {
                         double dist6 = getDistance(masterVerticesToPrim, tour.get(j), tour.get(k));
                         double dist7 = getDistance(masterVerticesToPrim, tour.get(i), tour.get(k));
                         double dist8 = getDistance(masterVerticesToPrim, tour.get(i+1), tour.get((k+1)%n));
-                        double delta1 = (dist1 + dist2 + dist3) - (dist4 + dist5 + dist3);
-                        double delta2 = (dist1 + dist2 + dist3) - (dist6 + dist5 + dist7);
-                        double delta3 = (dist1 + dist2 + dist3) - (dist4 + dist8 + dist7);
-                        if (delta1 < 0.0 || delta2 < 0.0 || delta3 < -0.0) {
+                        double delta1 = (dist4 + dist5 + dist3)- (dist1 + dist2 + dist3) ;
+                        double delta2 = (dist6 + dist5 + dist7)-(dist1 + dist2 + dist3) ;
+                        double delta3 = (dist4 + dist8 + dist7)-(dist1 + dist2 + dist3);
+                        if (delta1 < -1.0 || delta2 < -1.0 || delta3 < -1.0) {
                             if (delta1 < delta2 && delta1 < delta3) {
                                 tour = reverse(tour, i+1, j);
                                 tour = reverse(tour, j+1, k);
@@ -55,7 +57,7 @@ public class ThreeOpt {
     }
 
 
-    private static double getDistance(List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim, int u, int v) {
+    private  double getDistance(List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim, int u, int v) {
         if(v > u) {
             v = v-1;
         }
@@ -74,4 +76,15 @@ public class ThreeOpt {
         }
         return arr;
     }
+
+    public static void main(String[] args) {
+         ThreeOpt t3 = new ThreeOpt();
+        LondoncrimeDetailsEdge londoncrimeDetailsEdge = new LondoncrimeDetailsEdge();
+        List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim = new ArrayList<>();
+        masterVerticesToPrim = londoncrimeDetailsEdge.getEdgeInfo();
+        System.out.println("t3 "+ t3.getDistance(masterVerticesToPrim,441,291));
+
+    }
+
+
 }

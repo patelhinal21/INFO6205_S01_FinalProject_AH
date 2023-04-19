@@ -41,7 +41,10 @@ public class SimulatedAnnealing {
             }
             temperature *= 1 - coolingRate;
         }
+        double tourWeightInSA =calculateDistance(bestSolution);
+        System.out.println(tourWeightInSA);
         return bestSolution;
+
     }
 
     private double calculateEnergy(int[] solution) {
