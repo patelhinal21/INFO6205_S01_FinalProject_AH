@@ -110,8 +110,8 @@ public class LondoncrimeDetailsEdge {
                 '}';
     }
 
-    public static void main(String[] args) {
-        LondoncrimeDetailsEdge edge = new LondoncrimeDetailsEdge();
-        System.out.println("inside crime details edge "+ edge.getEdgeInfo().size());
-    }
+//    public static void main(String[] args) {
+//        LondoncrimeDetailsEdge edge = new LondoncrimeDetailsEdge();
+//        System.out.println("inside crime details edge "+ edge.getEdgeInfo().size());
+//    }
 }

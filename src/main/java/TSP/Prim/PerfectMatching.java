@@ -22,18 +22,6 @@ public class PerfectMatching {
             }
         }
 
-//         method to get all edges and sort
-//        TreeMap<Edge, Double> edgesForPerfectMatching1 = new TreeMap<>();
-//        for (Edge e : G.adj(A.indexOf(i))) {
-//            double weight = e.getWeight();
-//            edgesForPerfectMatching1.put(e, weight);
-//        }
-//
-//        System.out.println("tree map " + edgesForPerfectMatching1);
-
-
-//        method to sort edges
-
         List<Map.Entry<Edge, Double>> listValues = new LinkedList<>(edgesForPerfectMatching.entrySet());
         listValues.sort(Map.Entry.comparingByValue());
         System.out.println("sorted edges values " + listValues);
