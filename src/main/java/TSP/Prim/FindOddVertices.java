@@ -55,7 +55,7 @@ public class FindOddVertices {
             }
 
         }
-        System.out.println("number of odd vertices and size of array " + verticesArray.size());
+        System.out.println("number of odd vertices " + verticesArray.size());
         return verticesArray;
     }
 }
