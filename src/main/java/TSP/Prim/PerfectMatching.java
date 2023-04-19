@@ -13,30 +13,17 @@ public class PerfectMatching {
             for (Edge e : G.adj(o)) {
                 int v1 = o;
                 double weight = e.getWeight(); // write a for loop with instead of 1, all of the numbers in arraylist
-                for(int j = 0; j< A.size(); j++) {
+                for (int j = 0; j < A.size(); j++) {
                     if (e.other(v1) == A.get(j)) {
                         edgesForPerfectMatching.put(e, weight);
-                }
+                    }
 
                 }
             }
         }
 
-//         method to get all edges and sort
-//        TreeMap<Edge, Double> edgesForPerfectMatching1 = new TreeMap<>();
-//        for (Edge e : G.adj(A.indexOf(i))) {
-//            double weight = e.getWeight();
-//            edgesForPerfectMatching1.put(e, weight);
-//        }
-//
-//        System.out.println("tree map " + edgesForPerfectMatching1);
-
-
-//        method to sort edges
-
         List<Map.Entry<Edge, Double>> listValues = new LinkedList<>(edgesForPerfectMatching.entrySet());
         listValues.sort(Map.Entry.comparingByValue());
-        System.out.println("sorted edges values " + listValues);
 
         HashMap<Edge, Double> sortedHashMap = new LinkedHashMap<>();
         for (Map.Entry<Edge, Double> itr : listValues) {
@@ -47,10 +34,10 @@ public class PerfectMatching {
         return pairsOfEdges;
     }
 
-    public static List<Edge> pairsToAdd (HashMap<Edge, Double> sortedEdges, int oddVerticesNumber) {
+    public static List<Edge> pairsToAdd(HashMap<Edge, Double> sortedEdges, int oddVerticesNumber) {
         List<Edge> edgesFromPerfectMatching = new LinkedList<>();
 
-        for(int i =0 ; i < oddVerticesNumber/2; i++) {
+        for (int i = 0; i < oddVerticesNumber / 2; i++) {
             Map.Entry<Edge, Double> actualValue = sortedEdges.entrySet()
                     .stream()
                     .findFirst()

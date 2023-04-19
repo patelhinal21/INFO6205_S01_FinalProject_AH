@@ -8,13 +8,14 @@ public class EulerianCycle {
 
     private Queue<Edge> multigraph;
 
+    private List<String> representation = new ArrayList<>();
+
     public EulerianCycle() {
     }
 
     public EulerianCycle(Queue<Edge> multigraph) {
         this.multigraph = multigraph;
         int V = getNumberOfVertices(multigraph);
-        System.out.println("inside euler cycle size of multigraph " + V);
         degree = new int[V];
 
         // Create adjacency list and count degree of each vertex
@@ -29,16 +30,15 @@ public class EulerianCycle {
         int min = 0;
         int max = 584;
         int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
-//        int s = 0;
+
         int s = random_int;
-        System.out.println("value of s in Eulerian cycle which is the value of starting vertex " + s);
+        System.out.println("value of start point of tour " + s);
 
         while (s < V && degree[s] % 2 == 0) {
             s++;
         }
         if (s == V) {
-            // Graph has even degree, so start anywhere
-//            s = 0;
+
             s = random_int;
 
         }
@@ -57,7 +57,6 @@ public class EulerianCycle {
             }
             cycle.add(v);
         }
-        System.out.println("printing cycle " + cycle);
 
         // Check that all edges have been visited
         if (cycle.size() != getNumberOfEdges(multigraph) + 1) {
@@ -107,10 +106,8 @@ public class EulerianCycle {
         int firstVertex = eulerianCycle.element();
 
         Set<Integer> removeDuplicates = new LinkedHashSet<>(eulerianCycle);
-        System.out.println("hamilton circuit " + removeDuplicates);
         List<Integer> listVertices = new ArrayList<>(removeDuplicates.stream().toList());
         listVertices.add(firstVertex);
-        System.out.println("after adding initial vertex " + listVertices);
 
        return listVertices;
     }
@@ -124,12 +121,10 @@ public class EulerianCycle {
             tourWeight = tourWeight + distanceUsingFormula;
         }
 
-        System.out.println("tour weight " + tourWeight);
 
         return tourWeight;
     }
     public double getDistance(int a, int b, List<List<LondoncrimeDetailsEdge>> masterVerticesToPrim) {
-        System.out.println("inside get distance");
         if(b > a) {
             b = b-1;
         }
